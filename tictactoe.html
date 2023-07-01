@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav">
+            <ul class="nav-itens">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tictactoe.html">Tic-Tac-Toe</a></li>
+                <li><a href="#">About me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="scoreboard"> 
+        <h1>Tic Tac Toe</h1>
+        <hr>
+        <h2 id="xText"board></h2>
+        <h2 id="circleText"board></h2>
+    </div>
+
+    
+    <div class="game-content">
+        <div id="cellContainer">
+            <div cellIndex="0" class="cell"></div>
+            <div cellIndex="1" class="cell"></div>
+            <div cellIndex="2" class="cell"></div>
+            <div cellIndex="3" class="cell"></div>
+            <div cellIndex="4" class="cell"></div>
+            <div cellIndex="5" class="cell"></div>
+            <div cellIndex="6" class="cell"></div>
+            <div cellIndex="7" class="cell"></div>
+            <div cellIndex="8" class="cell"></div>
+        </div>
+
+        <h2 id="statusText"></h2> 
+        <button id="restartButton">Restart</button>
+    </div>
+
+</body>
+
+<script src="tictactoe.js"></script>
+</html>
