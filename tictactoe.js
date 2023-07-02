@@ -2,11 +2,12 @@ const cells = document.querySelectorAll(".cell");
 const xText = document.querySelector("#xText");
 const circleText = document.querySelector("#circleText");
 const statusText = document.querySelector("#statusText");
-
 const restartBtn = document.querySelector("#restartButton");
+const soloBtn = document.querySelector("#soloChange");
 
 let xPoints = 0;
 let circlePoints = 0;
+let solo = true;
 
 const winConditions = [
     [0, 1, 2],
@@ -23,13 +24,25 @@ let options = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = false;
 
+soloBtn.textContent = "Solo"
+
 initializeGame();
 
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     restartBtn.addEventListener("click", restartGame);
+    soloBtn.addEventListener("click", changeMode);
     statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
+}
+
+function changeMode(){
+    if (solo == true) {
+        soloBtn.textContent = "Multiplayer"; solo = false;
+    } else {
+        soloBtn.textContent = "Solo"; solo = true;
+    }
+    restartGame();
 }
 
 function cellClicked(){
@@ -51,7 +64,32 @@ function updateCell(cell, index){
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
     statusText.textContent = `${currentPlayer}'s turn`;
+
+    if (currentPlayer == "O" && solo == true){
+        robotTurn();
+    }
 }
+
+function robotTurn(){
+    const emptyCells = [];
+    for (let i = 0; i < options.length; i++) {
+      if (options[i] === "") {
+        emptyCells.push(i);
+      }
+    }
+
+    // Randomly select an empty cell
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const selectedCell = emptyCells[randomIndex];
+
+    // Simulate a delay before the robot makes its move
+    setTimeout(() => {
+        const cellElement = cells[selectedCell];
+        updateCell(cellElement, selectedCell);
+        checkWinner();
+    }, 500);
+}
+
 
 function checkWinner(){
     let roundWon = false;
