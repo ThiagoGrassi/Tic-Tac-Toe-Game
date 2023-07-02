@@ -9,12 +9,13 @@
 </head>
 
 <body>
+
     <nav>
         <div class="nav">
             <ul class="nav-itens">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="tictactoe.html">Tic-Tac-Toe</a></li>
-                <li><a href="#">About me</a></li>
+                <li><a href="aboutme.html">About me</a></li>
             </ul>
         </div>
     </nav>
@@ -22,11 +23,8 @@
     <div class="scoreboard"> 
         <h1>Tic Tac Toe</h1>
         <hr>
-        <h2 id="xText"board></h2>
-        <h2 id="circleText"board></h2>
     </div>
 
-    
     <div class="game-content">
         <div id="cellContainer">
             <div cellIndex="0" class="cell"></div>
@@ -41,9 +39,13 @@
         </div>
 
         <h2 id="statusText"></h2> 
-        <button id="restartButton">Restart</button>
+        <div id="buttons"></div>
+            <button id="restartButton">Restart</button>
+            <button id="soloChange"></button>
+        </div>
+        <h2 id="xText"board></h2>
+        <h2 id="circleText"board></h2>
     </div>
-
 </body>
 
 <script src="tictactoe.js"></script>
