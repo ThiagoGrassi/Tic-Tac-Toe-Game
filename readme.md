@@ -1,5 +1,4 @@
 # webdev-praticing
-Here you can see my webdev progress
 
 i create this repo to document my web developing progress, i will make a personal web site only to improve my knowledge. 
 
